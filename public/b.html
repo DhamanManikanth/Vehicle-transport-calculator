@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- let's import our stylesheet (found in public/css/styles.css)-->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+
+  <!-- you can also specify styles straight in html! Let's use Arial and gray text on this page.-->
+  <body style="font-family:'Comic Sans MS', 'Comic Sans', cursive; color: #333333">
+    <header
+      style="
+        background-color: #0000aa;
+        background-image: url('data:image/jpeg;base64,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');
+        padding: 15px;
+        text-align: center;
+        color: #ffffff;
+      "
+    >
+      <h1 style="
+        background-color: #01010c;
+        padding: -10px;">Calculate the distance</h1>
+    </header>
+
+
+    <div class="site-view">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/a">Distance Based Reports</a>
+      </nav>
+
+      <main style="color: #0000aa;">
+        <h2>Check out this Tool!</h2>
+        <h4> Enter time in hours:</h4>
+        <input type="number" id="timeinput" placeholder="Enter time in hours" />
+        <br />
+        <h4> Enter speed in kilometers: </h4>
+        <input type="number" id="speedinput" placeholder="Enter speed in kilometers" />
+      <br /> <br  />
+        <button id="calculateduration" style="background-color: transparent;font-family: 'Courier New', Courier, monospace;font-weight: 900;color: green;">Calculate Distance</button>
+      </main>
+
+      <footer>
+        <h2>About</h2>
+        <p>
+          This is some example code prepared for CS160: User Interface Design
+          &amp; Development, Spring 2024. It was built by Nate Weinman, Shm
+          Almeda, and Timothy J. Aveni.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+document.getElementById('calculateduration').addEventListener('click', async function() {
+    const timeInput = document.getElementById('timeinput');
+    const speedInput = document.getElementById('speedinput'); // Add this ID to your speed input
+    
+    // Get values
+    const time = parseFloat(timeInput.value);
+    const speed = parseFloat(speedInput.value);
+
+    // Validate inputs
+    if (!time || !speed) {
+        alert('Please enter both time and speed values');
+        return;
+    }
+
+    try {
+        const response = await fetch(`/calculate-duration?time=${time}&speed=${speed}`);
+        const data = await response.json();
+        
+        if (response.ok) {
+            // Create or get result div
+            let resultDiv = document.getElementById('result');
+            if (!resultDiv) {
+                resultDiv = document.createElement('div');
+                resultDiv.id = 'result';
+                document.querySelector('main').appendChild(resultDiv);
+            }
+            
+            // Display result
+            resultDiv.innerHTML = `
+                <h3>Calculation Result:</h3>
+                <p>Total Distance: ${data.distance} kilometers</p>
+                <p>Time: ${data.time} hours</p>
+                <p>Speed: ${data.speed} km/h</p>
+            `;
+        } else {
+            alert(data.error || 'Error calculating distance');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error calculating distance');
+    }
+});
+</script>
+  </body>
+</html>

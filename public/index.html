@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- let's import our stylesheet (found in public/css/styles.css)-->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+
+  <!-- you can also specify styles straight in html! Let's use Verdana on this page.-->
+  <body style="font-family: Verdana;background-color: rgb(252, 252, 225);">
+    <header
+      style="padding: 15px; text-align: center;
+      background-image: url('https://i.ytimg.com/vi/9sFfO_NW0i0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB8I_ZayNavldeCa7ueOflISapr7g');"
+
+    >
+      <h1 style="background-color: #db1515;">Vehicle Transport Converter</h1>
+    </header>
+
+    <div class="site-view">
+      <nav>
+        <a href="/a">Distance Based Reports</a>
+        <a href="/b">Time Based Reports</a>
+      </nav>
+
+      <main>
+        <h2>What is does ?</h2>
+        <p>
+          You can Calculate the duration or distance you want to go with a specific transportations and your Reports are accurate here just check out left side buttons and start calculating
+        </p>
+
+        <button id="compareAll" style="background-color: transparent;font-family: 'Courier New', Courier, monospace;font-weight: 900;color: blue;margin-left: 10px;">Compare All Vehicles</button>
+
+        <div class="comparison-container" id="comparison-results"></div>
+      </main>
+      
+      <footer>
+        <h2>About</h2>
+        <p>
+          In this Website you can calculate the Distance and Time based reports for
+          vehicle transport.
+        </p>
+      </footer>
+      
+    </div>
+
+    <style>
+      .comparison-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          margin-top: 20px;
+      }
+
+      .vehicle-card {
+          flex: 1 1 300px;
+          padding: 15px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          background: #f9f9f9;
+      }
+
+      .vehicle-card.out-of-range {
+          border-color: #ff4444;
+          background: #fff0f0;
+      }
+
+      .warning {
+          color: #ff4444;
+          font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+          .vehicle-card {
+              flex: 1 1 100%;
+          }
+          
+          .site-view {
+              padding: 10px;
+          }
+          
+          nav {
+              flex-direction: column;
+              gap: 10px;
+          }
+      }
+    </style>
+  </body>
+</html>
