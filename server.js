@@ -92,28 +92,22 @@ app.get('/add/:first/:second', (request, response) => {
 });
 
 
-// We can also define our own custom routes for actual files on the filesystem.
-//   This route handler is marked `async`, so we can use the `await` keyword to wait for a
-//   filesystem operation before responding to the user.
-// Try visiting http://localhost:8000/a rather than http://localhost:8000/a.html -- you'll notice that
-//   it works just the same!
+
 app.get('/a', async (request, response) => {
   const htmlContents = await fs.readFile('public/a.html');
   response.status(200).send(htmlContents.toString());
 });
 
-// Express has a helper function for this, so we don't need to use the filesystem library directly:
+
 app.get('/b', (request, response) => {
-  response.status(200).sendFile('public/b.html', { root: __dirname }); // We do need to tell Express where to look!
+  response.status(200).sendFile('public/b.html', { root: __dirname });
 });
 
 app.get('/c', (request, response) => {
   response.status(200).sendFile('public/c.html', { root: __dirname });
 });
 
-// Now, we can access our HTML using these more convenient `/a`, `/b`, and `/c` routes.
 
-// Add route for calculation
 app.get('/calculate', (req, res) => {
     const distance = parseFloat(req.query.distance);
     const vehicle = req.query.vehicle;
@@ -127,12 +121,12 @@ app.get('/calculate', (req, res) => {
         return res.status(400).json({ error: 'Invalid vehicle' });
     }
 
-    // Calculate time
+    
     const timeInHours = distance / vehicleInfo.speed;
     const hours = Math.floor(timeInHours);
     const minutes = Math.round((timeInHours - hours) * 60);
 
-    // Calculate fuel
+    
     const fuelNeeded = distance / vehicleInfo.efficiency;
     const isOutOfRange = distance > vehicleInfo.range;
 
@@ -144,7 +138,7 @@ app.get('/calculate', (req, res) => {
     });
 });
 
-// Add this new route after your existing /calculate route
+
 app.get('/compare-all', (req, res) => {
     const distance = parseFloat(req.query.distance);
     
@@ -155,12 +149,12 @@ app.get('/compare-all', (req, res) => {
     const results = {};
     
     for (const [vehicle, data] of Object.entries(vehicleData)) {
-        // Calculate time
+        
         const timeInHours = distance / data.speed;
         const hours = Math.floor(timeInHours);
         const minutes = Math.round((timeInHours - hours) * 60);
         
-        // Calculate fuel
+        
         const fuelNeeded = distance / data.efficiency;
         const isOutOfRange = distance > data.range;
         
@@ -178,7 +172,7 @@ app.get('/compare-all', (req, res) => {
     res.json(results);
 });
 
-// Route for calculating duration
+
 app.get('/calculate-duration', (req, res) => {
     const time = parseFloat(req.query.time);
     const speed = parseFloat(req.query.speed);
@@ -189,7 +183,7 @@ app.get('/calculate-duration', (req, res) => {
         });
     }
 
-    // Calculate distance (speed * time)
+    
     const distance = speed * time;
     
     res.json({
@@ -200,8 +194,7 @@ app.get('/calculate-duration', (req, res) => {
 });
 
 
-// Finally, we tell this server to listen for new requests. This line is what makes the Node process
-//   run indefinitely, waiting for HTTP requests and responding as we defined above.
+
 app.listen(PORT, HOST, () => {
   console.log(`Server listening at http://${HOST}:${PORT}`);
 });
